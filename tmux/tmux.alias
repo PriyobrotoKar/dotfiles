@@ -1,0 +1,20 @@
+# Attaches tmux to the last session; creates a new session if none exists.
+alias t='tmux attach || tmux new-session'
+
+# Attaches tmux to a session (example: ta portal)
+alias ta='tmux attach -t'
+
+# Attaches tmux to a session creating a group (example: tag portal)
+tag(){
+	tmux new-session -t "$1" -s "$2"
+}
+
+
+# Creates a new session
+alias tn='tmux new -s'
+
+# Lists all ongoing sessions
+alias tl='tmux list-sessions'
+
+# delete a session
+alias td='tmux kill-session -t'
