@@ -1,5 +1,10 @@
+# Load configuration files
+source $DOTFILES/zsh/aliases.zsh
+source ~/.config/tmux/.tmux-alias
+source $ZSH/oh-my-zsh.sh
+source <(fzf --zsh)
+
 # Environment Variables
-export DOTFILES=$HOME/dotfiles
 export NVM_DIR="$HOME/.nvm"
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -22,11 +27,5 @@ ZSH_THEME="robbyrussell"
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Load configuration files
-source $DOTFILES/zsh/aliases.zsh
-source ~/.config/tmux/.tmux-alias
-source $ZSH/oh-my-zsh.sh
-source <(fzf --zsh)
 
 
