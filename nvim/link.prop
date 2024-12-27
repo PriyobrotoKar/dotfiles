@@ -1,1 +1,1 @@
-$DOTFILES/nvim/=$HOME/.config/nvim
+$DOTFILES/nvim=$HOME/.config/nvim

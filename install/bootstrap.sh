@@ -1,11 +1,11 @@
 #!/bin/bash
-source ./install-deps.sh
+# source ./install-deps.sh
 
 DOTFILES=$HOME/dotfiles
 
 # Create symlinks for dotfiles
 create_link() {
-  if [ -f "$2" ]; then
+  if [ -e "$2" ]; then
     rm -rf $2
   fi
 
@@ -30,10 +30,10 @@ bootstrap() {
     done
   done
 
-  env zsh
+  echo ""
+  echo ""
+  echo "Installation complete!"
+  exec zsh -l
 }
 
 bootstrap
-echo ""
-echo ""
-echo "Installation complete!"
