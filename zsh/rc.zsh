@@ -1,12 +1,19 @@
+export DOTFILES=$HOME/dotfiles
+export ZSH="$HOME/.oh-my-zsh"
+
+#oh-my-zsh
+plugins=(git)
+ZSH_THEME="robbyrussell"
+
 # Load configuration files
+source $ZSH/oh-my-zsh.sh
 source $DOTFILES/zsh/aliases.zsh
 source ~/.config/tmux/.tmux-alias
-source $ZSH/oh-my-zsh.sh
 source <(fzf --zsh)
+
 
 # Environment Variables
 export NVM_DIR="$HOME/.nvm"
-export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
 export ANDROID_HOME=/Users/priyobroto/Library/Android/sdk
 export PNPM_HOME="/Users/priyobroto/Library/pnpm"
@@ -22,8 +29,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-plugins=(git)
-ZSH_THEME="robbyrussell"
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
