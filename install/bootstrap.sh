@@ -1,5 +1,5 @@
 #!/bin/bash
-# source ./install-deps.sh
+source ./install-deps.sh
 
 DOTFILES=$HOME/dotfiles
 
