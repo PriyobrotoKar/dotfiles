@@ -8,6 +8,11 @@ return -- lazy.nvim
       notifier = {
         level = vim.log.levels.WARN,
       },
+      scroll = {
+        animate = {
+          duration = { step = 0 },
+        },
+      },
     },
   },
   {
