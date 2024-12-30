@@ -7,17 +7,24 @@ return {
   --   "sources.compat",
   --   "sources.default",
   -- },
-  dependencies = {
-    "rafamadriz/friendly-snippets",
-  },
   event = "InsertEnter",
+  dependencies = { "L3MON4D3/LuaSnip", version = "v2.*" },
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
     snippets = {
-      expand = function(snippet, _)
-        return LazyVim.cmp.expand(snippet)
+      expand = function(snippet)
+        require("luasnip").lsp_expand(snippet)
+      end,
+      active = function(filter)
+        if filter and filter.direction then
+          return require("luasnip").jumpable(filter.direction)
+        end
+        return require("luasnip").in_snippet()
+      end,
+      jump = function(direction)
+        require("luasnip").jump(direction)
       end,
     },
     appearance = {
@@ -57,7 +64,7 @@ return {
       -- adding any nvim-cmp sources here will enable them
       -- with blink.compat
       compat = {},
-      default = { "lsp", "path", "snippets", "buffer" },
+      default = { "lsp", "path", "luasnip", "buffer" },
       providers = {
         copilot = {
           name = "copilot",
@@ -69,9 +76,20 @@ return {
 
     keymap = {
       preset = "enter",
-      ["<C-y>"] = { "select_and_accept" },
+      ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+      ["<C-e>"] = { "hide", "fallback" },
+      ["<CR>"] = { "accept", "fallback" },
+
+      ["<Tab>"] = { "snippet_forward", "fallback" },
+      ["<S-Tab>"] = { "snippet_backward", "fallback" },
+
+      ["<Up>"] = { "select_prev", "fallback" },
+      ["<Down>"] = { "select_next", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
       ["<C-k>"] = { "select_prev", "fallback" },
+
+      ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-f>"] = { "scroll_documentation_down", "fallback" },
     },
   },
   ---@param opts blink.cmp.Config | { sources: { compat: string[] } }
