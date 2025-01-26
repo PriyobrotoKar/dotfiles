@@ -22,6 +22,8 @@ export PNPM_HOME="/Users/priyobroto/Library/pnpm"
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
 # pnpm
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;

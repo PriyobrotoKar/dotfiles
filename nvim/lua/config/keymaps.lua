@@ -26,3 +26,6 @@ map("n", "J", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "Move Down" })
 map("n", "K", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Move Up" })
 map("v", "J", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "Move Down" })
 map("v", "K", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "Move Up" })
+
+map("n", "<leader>ff", LazyVim.pick("files", { root = false }), { desc = "Find Files (Root Dir)" })
+map("n", "<leader>fF", LazyVim.pick("files"), { desc = "Find Files" })
