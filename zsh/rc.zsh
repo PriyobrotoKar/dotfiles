@@ -17,12 +17,14 @@ export NVM_DIR="$HOME/.nvm"
 export XDG_CONFIG_HOME="$HOME/.config"
 export ANDROID_HOME=/Users/priyobroto/Library/Android/sdk
 export PNPM_HOME="/Users/priyobroto/Library/pnpm"
+export JAVA_HOME=$(/usr/libexec/java_home) 
 
 # Add paths to PATH
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 
 # pnpm
 case ":$PATH:" in
@@ -36,3 +38,4 @@ esac
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"

@@ -7,11 +7,18 @@
 // from the command palette.
 [
   {
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrev"
+    }
+  },
+  {
     "context": "ProjectPanel && not_editing",
     "bindings": {
       "l": "project_panel::OpenPermanent",
       "n": "project_panel::NewFile",
-      "shift-n": "project_panel::NewDirectory"
+      "shift-n": "project_panel::NewDirectory",
+      "space e": "project_panel::ToggleFocus"
     }
   },
   {
@@ -28,25 +35,28 @@
     "bindings": {
       // "shift-y": ["workspace::SendKeystrokes", "y $"] // Use neovim's yank behavior: yank to end of line.
       "space w": "workspace::Save",
-      "space f": "file_finder::Toggle",
       "space e": "project_panel::ToggleFocus",
+      "space f": "file_finder::Toggle",
       "shift-h": "pane::ActivatePrevItem",
       "shift-l": "pane::ActivateNextItem",
       "space v": "pane::SplitRight",
-      "space h": ["workspace::ActivatePaneInDirection", "Left"],
-      "space l": ["workspace::ActivatePaneInDirection", "Right"],
-      "space k": ["workspace::ActivatePaneInDirection", "Up"],
-      "space j": ["workspace::ActivatePaneInDirection", "Down"],
+      "shift-k": "editor::Hover",
+      "space x": "editor::GoToDiagnostic",
+      // "space h": ["workspace::ActivatePaneInDirection", "Left"],
+      // "space l": ["workspace::ActivatePaneInDirection", "Right"],
+      // "space k": ["workspace::ActivatePaneInDirection", "Up"],
+      // "space j": ["workspace::ActivatePaneInDirection", "Down"],
       "space q": "pane::CloseActiveItem",
-      "space Q": "pane::CloseAllItems"
+      "space k q": "pane::CloseAllItems",
+      "ctrl-j": "terminal_panel::ToggleFocus"
     }
   },
   {
     "context": "vim_mode == insert",
     "bindings": {
       // "j k": "vim::NormalBefore" // In insert mode, make jk escape to normal mode.
-      "cmd-j": "editor::ContextMenuNext",
-      "cmd-k": "editor::ContextMenuPrev"
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrev"
     }
   },
   {
@@ -56,6 +66,12 @@
       // work when no editor exists.
       "space f": "file_finder::Toggle",
       "space e": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-k": "terminal_panel::ToggleFocus"
     }
   }
 ]
