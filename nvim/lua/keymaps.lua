@@ -35,7 +35,7 @@ vim.keymap.set('n', '<leader>w', '<cmd>w<cr><esc>', { desc = 'Save File' })
 vim.keymap.set('n', '<leader>q', function()
   Snacks.bufdelete()
 end, { desc = 'Delete Buffer' })
-vim.keymap.set('n', '<leader>Q', '<cmd>wqa<cr><esc>', { desc = 'Save File' })
+vim.keymap.set('n', '<leader>Q', '<cmd>qa<cr><esc>', { desc = 'Save File' })
 vim.keymap.set('n', '<leader>kq', function()
   local buffers = vim.fn.getbufinfo { buflisted = 1 }
   for _, buffer in ipairs(buffers) do
