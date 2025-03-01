@@ -26,10 +26,10 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set({ 'n', 't' }, '<C-h>', '<C-\\><C-n><C-w>h', { desc = 'Move focus to the left window' })
+vim.keymap.set({ 'n', 't' }, '<C-l>', '<C-\\><C-n><C-w>l', { desc = 'Move focus to the right window' })
+vim.keymap.set({ 'n', 't' }, '<C-j>', '<C-\\><C-n><C-w>j', { desc = 'Move focus to the lower window' })
+vim.keymap.set({ 'n', 't' }, '<C-k>', '<C-\\><C-n><C-w>k', { desc = 'Move focus to the upper window' })
 
 vim.keymap.set('n', '<leader>w', '<cmd>w<cr><esc>', { desc = 'Save File' })
 vim.keymap.set('n', '<leader>q', function()
@@ -42,6 +42,11 @@ vim.keymap.set('n', '<leader>kq', function()
     vim.api.nvim_buf_delete(buffer.bufnr, { force = true })
   end
 end, { desc = 'Close all buffers' })
+
+vim.keymap.set('n', '<c-/>', function()
+  Snacks.terminal(nil, { cwd = vim.fn.getcwd() })
+end, { desc = 'Terminal (Root Dir)' })
+vim.keymap.set('t', '<C-/>', '<cmd>close<cr>', { desc = 'Hide Terminal' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
