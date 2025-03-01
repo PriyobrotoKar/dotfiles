@@ -1,47 +1,49 @@
+-- Neo-tree is a Neovim plugin to browse the file system
+-- https://github.com/nvim-neo-tree/neo-tree.nvim
+
 return {
-  "nvim-neo-tree/neo-tree.nvim",
-  branch = "v3.x",
+  'nvim-neo-tree/neo-tree.nvim',
+  lazy = false,
+  version = '*',
   dependencies = {
-    "nvim-lua/plenary.nvim",
-    "MunifTanjim/nui.nvim",
-    -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    'nvim-lua/plenary.nvim',
+    'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+    'MunifTanjim/nui.nvim',
   },
+  cmd = 'Neotree',
   keys = {
-    {
-      "<leader>fE",
-      function()
-        require("neo-tree.command").execute({ toggle = true, dir = LazyVim.root() })
-      end,
-      desc = "Explorer NeoTree (cwd)",
-    },
-    {
-      "<leader>fe",
-      function()
-        require("neo-tree.command").execute({ toggle = true, dir = vim.uv.cwd() })
-      end,
-      desc = "Explorer NeoTree (Root Dir)",
-    },
+    { '<leader>e', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
-    window = {
-      width = 35,
+    filesystem = {
+      follow_current_file = { enabled = true },
+      hijack_netrw_behaviour = 'open_current',
+      window = {
+        width = 35,
+        mappings = {
+          ['e'] = 'close_window',
+          ['l'] = 'open',
+          ['h'] = 'close_node',
+        },
+      },
     },
+
     default_component_configs = {
       git_status = {
         symbols = {
           -- Change type
-          added = "✚", -- NOTE: you can set any of these to an empty string to not show them
-          deleted = "✖",
-          modified = "",
-          renamed = "",
+          added = '✚', -- NOTE: you can set any of these to an empty string to not show them
+          deleted = '✖',
+          modified = '',
+          renamed = '',
           -- Status type
-          untracked = "U",
-          ignored = "",
-          unstaged = "M",
-          staged = "A",
-          conflict = "",
+          untracked = 'U',
+          ignored = '',
+          unstaged = 'M',
+          staged = 'A',
+          conflict = '',
         },
-        align = "right",
+        align = 'right',
       },
     },
   },
