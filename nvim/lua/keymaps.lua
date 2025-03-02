@@ -43,10 +43,10 @@ vim.keymap.set('n', '<leader>kq', function()
   end
 end, { desc = 'Close all buffers' })
 
-vim.keymap.set('n', '<c-/>', function()
+vim.keymap.set('n', '<leader>/', function()
   Snacks.terminal(nil, { cwd = vim.fn.getcwd() })
 end, { desc = 'Terminal (Root Dir)' })
-vim.keymap.set('t', '<C-/>', '<cmd>close<cr>', { desc = 'Hide Terminal' })
+vim.keymap.set('t', '<leader>/', '<cmd>close<cr>', { desc = 'Hide Terminal' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
