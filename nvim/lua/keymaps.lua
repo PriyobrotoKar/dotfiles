@@ -13,11 +13,11 @@ vim.keymap.set('n', '<leader>x', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- [[ Terminal ]]
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-vim.keymap.set('n', '<leader>/', function()
+vim.keymap.set('n', '<c-/>', function()
   Snacks.terminal(nil, { cwd = vim.fn.getcwd() })
 end, { desc = 'Open terminal (root dir)' })
 
-vim.keymap.set('t', '<leader>/', '<cmd>close<CR>', { desc = 'Close terminal' })
+vim.keymap.set('t', '<c-/>', '<cmd>close<CR>', { desc = 'Close terminal' })
 
 -- [[ Window Management ]]
 vim.keymap.set('n', '<leader>sh', '<C-W>s', { desc = 'Split window below', remap = true })
