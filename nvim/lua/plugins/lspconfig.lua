@@ -241,6 +241,10 @@ return {
             },
           },
         },
+
+        terraformls = {
+          filetypes = { 'tf', 'terraform' },
+        },
       }
 
       -- Ensure the servers and tools above are installed

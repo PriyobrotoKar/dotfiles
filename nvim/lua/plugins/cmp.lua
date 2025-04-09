@@ -88,12 +88,14 @@ return {
           --
           -- <c-l> will move you to the right of each of the expansion locations.
           -- <c-h> is similar, except moving you backwards.
-          ['<Tab>'] = cmp.mapping(function()
+          ['<Tab>'] = cmp.mapping(function(fallback)
             local copilot = require 'copilot.suggestion'
             if copilot.is_visible() then
               copilot.accept()
             elseif luasnip.expand_or_locally_jumpable() then
               luasnip.expand_or_jump()
+            else
+              fallback()
             end
           end, { 'i', 's' }),
           ['<S-Tab>'] = cmp.mapping(function()

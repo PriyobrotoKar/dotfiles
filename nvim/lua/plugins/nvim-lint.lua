@@ -28,6 +28,7 @@ return {
         '.eslintrc.yaml',
         '.eslintrc.yml',
         '.eslintrc.json',
+        'eslint.config.mjs',
         'package.json', -- Some projects configure eslint inside package.json
       }
 
@@ -66,7 +67,7 @@ return {
     end
 
     eslint.args = {
-      '--no-warn-ignored', -- <-- this is the key argument
+      -- '--no-warn-ignored', -- <-- this is the key argument
       '--format',
       'json',
       '--stdin',

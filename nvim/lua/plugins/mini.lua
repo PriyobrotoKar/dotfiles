@@ -10,6 +10,12 @@ return {
       --  - ci'  - [C]hange [I]nside [']quote
       require('mini.ai').setup { n_lines = 500 }
 
+      -- Better Indent lines
+      require('mini.indentscope').setup {
+        symbol = '│',
+        options = { try_as_border = true },
+      }
+
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
       -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren

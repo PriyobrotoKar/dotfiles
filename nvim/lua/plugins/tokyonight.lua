@@ -15,7 +15,20 @@ return {
           floats = 'transparent',
         },
         on_colors = function(colors)
-          colors.bg_sidebar = '#14161b'
+          colors.bg_sidebar = '#0a0f16'
+          colors.bg_highlight = '#1a1b26'
+          colors.git = {
+            add = '#67814c',
+            change = '#bb6f43',
+            delete = '#d14d5d',
+          }
+        end,
+
+        on_highlights = function(highlights, colors)
+          highlights.BufferLineIndicatorSelected = {
+            fg = colors.blue,
+            bg = colors.bg_sidebar,
+          }
         end,
       }
 
