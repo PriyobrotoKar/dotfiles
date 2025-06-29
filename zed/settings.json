@@ -15,6 +15,7 @@
     "version": "2"
   },
   "vim_mode": true,
+  "restore_on_startup": "none",
   "ui_font_size": 14,
   "buffer_font_size": 12,
   "cursor_blink": false,

@@ -36,3 +36,4 @@ esac
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
