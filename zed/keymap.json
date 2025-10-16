@@ -7,11 +7,21 @@
 // from the command palette.
 [
   {
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrevious"
+    }
+  },
+  {
     "context": "ProjectPanel && not_editing",
     "bindings": {
       "l": "project_panel::OpenPermanent",
-      "n": "project_panel::NewFile",
-      "shift-n": "project_panel::NewDirectory"
+      "a": "project_panel::NewFile",
+      "shift-n": "project_panel::NewDirectory",
+      "space e": "project_panel::ToggleFocus",
+      "d": "project_panel::Delete",
+      "r": "project_panel::Rename",
+      "e": "workspace::ToggleLeftDock"
     }
   },
   {
@@ -27,26 +37,36 @@
     "context": "vim_mode == normal && !menu",
     "bindings": {
       // "shift-y": ["workspace::SendKeystrokes", "y $"] // Use neovim's yank behavior: yank to end of line.
+      "space s h": "pane::SplitHorizontal",
+      "space s v": "pane::SplitVertical",
+      "space d l": "editor::Hover",
       "space w": "workspace::Save",
-      "space f": "file_finder::Toggle",
+      "space f f": "file_finder::Toggle",
+      "space f g": "pane::DeploySearch",
       "space e": "project_panel::ToggleFocus",
-      "shift-h": "pane::ActivatePrevItem",
+      "shift-h": "pane::ActivatePreviousItem",
       "shift-l": "pane::ActivateNextItem",
       "space v": "pane::SplitRight",
-      "space h": ["workspace::ActivatePaneInDirection", "Left"],
-      "space l": ["workspace::ActivatePaneInDirection", "Right"],
-      "space k": ["workspace::ActivatePaneInDirection", "Up"],
-      "space j": ["workspace::ActivatePaneInDirection", "Down"],
+      "space h": "workspace::ActivatePaneLeft",
+      "space l": "workspace::ActivatePaneRight",
+      "space k": "workspace::ActivatePaneUp",
+      "space j": "workspace::ActivatePaneDown",
       "space q": "pane::CloseActiveItem",
-      "space Q": "pane::CloseAllItems"
+      "space k q": "pane::CloseAllItems",
+      "space x j": "editor::GoToDiagnostic",
+      "space x x": "diagnostics::DeployCurrentFile",
+      "ctrl-j": "terminal_panel::ToggleFocus",
+      "space g h": "editor::ToggleSelectedDiffHunks",
+      "space g n": "editor::GoToHunk",
+      "space g b": "editor::ToggleGitBlameInline"
     }
   },
   {
     "context": "vim_mode == insert",
     "bindings": {
       // "j k": "vim::NormalBefore" // In insert mode, make jk escape to normal mode.
-      "cmd-j": "editor::ContextMenuNext",
-      "cmd-k": "editor::ContextMenuPrev"
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrevious"
     }
   },
   {
@@ -54,8 +74,15 @@
     "bindings": {
       // Put key bindings here (in addition to the context above) if you want them to
       // work when no editor exists.
-      "space f": "file_finder::Toggle",
+      "space f f": "file_finder::Toggle",
+      "space f g": "pane::DeploySearch",
       "space e": "project_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-k": "terminal_panel::ToggleFocus"
     }
   }
 ]

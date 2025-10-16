@@ -19,6 +19,8 @@ end, { desc = 'Open terminal (root dir)' })
 
 vim.keymap.set('t', '<c-/>', '<cmd>close<CR>', { desc = 'Close terminal' })
 
+-- To split terminal windows use [n]<C-/> in normal mode
+
 -- [[ Window Management ]]
 vim.keymap.set('n', '<leader>sh', '<C-W>s', { desc = 'Split window below', remap = true })
 vim.keymap.set('n', '<leader>sv', '<C-W>v', { desc = 'Split window right', remap = true })
@@ -51,6 +53,9 @@ vim.keymap.set('i', '<A-k>', '<esc><cmd>m .-2<CR>==gi', { desc = 'Move line up' 
 
 vim.keymap.set('v', '<A-j>', ":<C-u>execute \"'<,'>move '>+\" . v:count1<CR>gv=gv", { desc = 'Move selection down' })
 vim.keymap.set('v', '<A-k>', ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<CR>gv=gv", { desc = 'Move selection up' })
+
+-- [[ Git FLog ]]
+vim.keymap.set('n', '<leader>gf', '<cmd>Flog<CR>', { desc = 'Git FLog' })
 
 -- [[ Optional - Disable Arrow Keys (Uncomment if needed) ]]
 -- vim.keymap.set('n', '<left>',  '<cmd>echo "Use h to move!!"<CR>')

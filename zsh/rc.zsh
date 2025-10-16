@@ -1,5 +1,6 @@
 export DOTFILES=$HOME/dotfiles
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="nvim"
 
 #oh-my-zsh
 plugins=(git)
@@ -23,6 +24,11 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="$HOME/.bun/bin:$PATH"
+
+# Add aliases
+alias lg='lazygit'
+alias glog='git log --oneline --abbrev-commit --all --graph --decorate --color'
 
 # pnpm
 case ":$PATH:" in
